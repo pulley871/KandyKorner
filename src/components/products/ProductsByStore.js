@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
+import { FetchProductsByStore } from "../ApiManager";
 import { Link } from "react-router-dom"
 
 export const ProductsByStore = (props) =>{
     const [products, setProducts] = useState([])
     useEffect(
         ()=>{
-            fetch(`http://localhost:8088/productsByLocations?productId=${props.productId}&_expand=location`)
-            .then(res => res.json())
+            FetchProductsByStore(props)
             .then((data)=> setProducts(data))
         },
         [])

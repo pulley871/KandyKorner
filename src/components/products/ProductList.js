@@ -1,30 +1,23 @@
 import React, {useEffect, useState} from "react";
 import { ProductsByStore } from "./ProductsByStore";
 import "./ProductList.css"
+import { FetchProductsWithTypeSortedById, PostCandyOrder } from "../ApiManager";
 export const ProductList = ()=>{
     const [products, setProducts] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:8088/products?_expand=productType&_sort=productTypeId')
-        .then(res=> res.json())
+        FetchProductsWithTypeSortedById()
         .then((data)=> setProducts(data))
     },
     [])
     const purchaseCandy = (event)=>{
         const [candyId, candyTypeId] = event.target.value.split("--")
-        debugger
         const candyObject = {
             customerId : parseInt(localStorage.getItem("kandy_customer")),
             productId : parseInt(candyId),
             productTypeId : parseInt(candyTypeId)
         }
-        fetch(`http://localhost:8088/purchases`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(candyObject)
-        })
+        PostCandyOrder(candyObject)
             
     }
     return (

@@ -2,6 +2,7 @@ import React from "react"
 import {Route} from "react-router-dom"
 import { CustomerList } from "./components/customers/CustomerList"
 import { Purchases } from "./components/customers/userPurchases/Purchases"
+import { Inventory } from "./components/inventorySearch/Inventory"
 import { ProductList } from "./components/products/ProductList"
 import { StoreProfile } from "./storeLocations/StoreProfile"
 import { StoresList } from "./storeLocations/Stores"
@@ -27,6 +28,9 @@ export const ApplicationViews = ()=>{
             </Route>
             <Route path="/purchases">
                 <Purchases />
+            </Route>
+            <Route path="/inventory">
+                <Inventory />
             </Route>
         </>
     )

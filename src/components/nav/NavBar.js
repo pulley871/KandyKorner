@@ -20,6 +20,9 @@ export const NavBar = () =>{
             <li className="navbar__item  btn btn-outline-success me-2">
                 <Link className="navbar_link" to="/purchases" >Purchases</Link>
             </li>
+            <li className="navbar__item  btn btn-outline-success me-2">
+                <Link className="navbar_link" to="/inventory" >Search Inventory</Link>
+            </li>
         </ul>
     )
 }
