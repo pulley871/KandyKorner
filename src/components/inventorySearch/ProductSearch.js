@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react"
 
 export const SearchProducts = ({item})=>{
-    const [searchText, setSearchText]=useState("")
+    //const [searchText, setSearchText]=useState("")
     return (<div>
         <input type="text" placeholder="Search For Product" onKeyUp={(event)=>{
             
             if (event.keyCode === 13){
-                item(searchText)
+                item(event.target.value)
             }else{
-                setSearchText(event.target.value)
+                item(event.target.value)
             }
 
            
@@ -16,7 +16,6 @@ export const SearchProducts = ({item})=>{
                 
             
          } }></input>
-        {console.log(searchText)}
-        <button id="searchinvbtn"onClick={()=> item(searchText)}>Search</button>
+      
     </div>)
 }

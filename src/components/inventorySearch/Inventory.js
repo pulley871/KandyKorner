@@ -12,11 +12,16 @@ export const Inventory = () => {
         .then(data => setProducts(data))
     },[])
     useEffect(()=>{
-        const foundProducts = products.find((product)=> product.name.startsWith(searchTerm)  )
-        
-        if (foundProducts !== undefined){
-            setFoundProduct(foundProducts)
+        if(searchTerm !== ""){
 
+            const foundProducts = products.find((product)=> product.name.startsWith(searchTerm)  )
+            
+            if (foundProducts !== undefined){
+                setFoundProduct(foundProducts)
+    
+            }
+        }else{
+            setFoundProduct({})
         }
     },[searchTerm])
     return (<>

@@ -15,13 +15,13 @@ export const NavBar = () =>{
                 <Link className="navbar_link" to="/customers">Customers</Link>
             </li>
             <li className="navbar__item  btn btn-outline-success me-2">
-                <Link className="navbar_link" to="/login" onClick={()=>localStorage.removeItem("kandy_customer")}>Logout</Link>
-            </li>
-            <li className="navbar__item  btn btn-outline-success me-2">
                 <Link className="navbar_link" to="/purchases" >Purchases</Link>
             </li>
             <li className="navbar__item  btn btn-outline-success me-2">
                 <Link className="navbar_link" to="/inventory" >Search Inventory</Link>
+            </li>
+            <li className="navbar__item  btn btn-outline-success me-2">
+                <Link className="navbar_link" to="/login" onClick={()=>localStorage.removeItem("kandy_customer")}>Logout</Link>
             </li>
         </ul>
     )
